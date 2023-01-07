@@ -32,7 +32,9 @@ export default class Transf {
      * @param shouldDoFunc 
      */
     public ifObject(shouldDoFunc: (object: any) => boolean): Transf {
+        this.shouldDoNext = shouldDoFunc(this.baseObject)
 
+        return this
     }
 
     /**
