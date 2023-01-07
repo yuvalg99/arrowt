@@ -9,7 +9,7 @@
 export function set(object: any, path: string, value: any): boolean {
     const fields: string[] = path.split(".")
     if (fields.length != 1 && fields[0] in object) {
-       return set(object[fields[0]], fields.slice(1).join("."), value)
+        return set(object[fields[0]], fields.slice(1).join("."), value)
     }
 
     if (fields.length === 1 && fields[0] in object) {
@@ -18,5 +18,5 @@ export function set(object: any, path: string, value: any): boolean {
     }
 
     return false
-    
+
 }

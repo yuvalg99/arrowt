@@ -4,13 +4,15 @@ export default class Transf {
 
     baseObject: any = {}
     shouldDoNext: boolean = false
+    silenceErros: boolean
 
     /**
      * 
      * @param {any} baseObject - The base object for transformation. 
      */
-    constructor(baseObject: any) {
+    constructor(baseObject: any, silenceErros: boolean = false) {
         this.baseObject = baseObject
+        this.silenceErros = silenceErros
     }
 
     /**

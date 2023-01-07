@@ -4,7 +4,7 @@
  * @param path - The path to check,
  * @returns {boolean} - Returns `true` if {path} exits, else `false`
  */
-export function has(object: any, path: string): boolean{
+export function has(object: any, path: string): boolean {
     const fields: string[] = path.split(".")
     if (fields.length != 1 && typeof object[fields[0]] === 'object') {
         return has(object[fields[0]], fields.slice(1).join("."))
