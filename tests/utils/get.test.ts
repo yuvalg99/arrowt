@@ -1,4 +1,4 @@
-import { get } from '../src/utils/get'
+import { get } from '../../src/utils/get'
 
 describe('testing get', () => {
     test('easy object', () => {
