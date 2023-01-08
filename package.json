@@ -1,6 +1,9 @@
 {
   "devDependencies": {
     "@types/jest": "^29.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
+    "eslint": "^8.31.0",
     "jest": "^29.3.1",
     "ts-jest": "^29.0.3",
     "typescript": "^4.9.4"
@@ -24,6 +27,7 @@
   "homepage": "https://github.com/yuvalg99/transf#readme",
   "dependencies": {
     "@types/lodash": "^4.14.191",
+    "eslint-plugin-jest": "^27.2.1",
     "lodash": "^4.17.21"
   }
 }
