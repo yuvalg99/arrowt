@@ -1,4 +1,4 @@
-import { has } from '../src/utils/has'
+import { has } from '../../src/utils/has'
 
 describe('testing has', () => {
     test('with regular value', () => {

@@ -1,4 +1,4 @@
-import { set } from '../src/utils/set'
+import { set } from '../../src/utils/set'
 
 describe('testing get', () => {
     test('with regular value', () => {

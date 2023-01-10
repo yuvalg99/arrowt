@@ -1,4 +1,4 @@
-import { unset } from '../src/utils/unset'
+import { unset } from '../../src/utils/unset'
 
 describe('Unset', () => {
     test('should unset specified path in object', () => {
