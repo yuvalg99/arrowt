@@ -1,18 +1,26 @@
 import _ from 'lodash'
+import { IAction } from './IAction'
+import { Remove } from './Remove'
 
 export default class Transf {
 
-    baseObject: any = {}
-    shouldDoNext: boolean = false
-    silenceErros: boolean
+    /**
+     * The base object to transform
+     * 
+     * @defaultValue 
+     */
+    private baseObject: any = {}
+    private shouldDoNext = false
+    public throwErros: boolean
+    public actions: IAction[] = []
 
     /**
      * 
      * @param {any} baseObject - The base object for transformation. 
      */
-    constructor(baseObject: any, silenceErros: boolean = false) {
+    constructor(baseObject: any, throwErrors: boolean = false) {
         this.baseObject = baseObject
-        this.silenceErros = silenceErros
+        this.throwErros = throwErrors
     }
 
     /**
@@ -45,11 +53,15 @@ export default class Transf {
      * @returns 
      */
     public remove(field: string): Transf {
-        if (this.shouldDoNext && _.has(this.baseObject, field)) {
-            _.unset(this.baseObject, field)
-        }
-
+        this.actions.push(new Remove(field))
         return this
+    }
+
+    public build(): any {
+        for (let action of this.actions) {
+            action.run(this.baseObject)
+        }
+        return this.baseObject
     }
 
 
