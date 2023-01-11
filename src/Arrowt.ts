@@ -1,11 +1,11 @@
 import _ from 'lodash'
 import { IAction } from './IAction'
 import { Remove } from './actions/Remove'
-import { Transform } from './actions/Transform'
+import { transform } from './actions/Transform'
 import { If } from './if'
 import { get } from './utils/get'
 
-export default class Transf {
+export default class Arrowt {
 
     /**
      * The base object to transform
@@ -26,37 +26,14 @@ export default class Transf {
         this.throwErros = throwErrors
     }
 
-    // /**
-    //  * 
-    //  * @param field 
-    //  * @param shouldDoFunc 
-    //  * @returns 
-    //  */
-    // public ifField(field: string, shouldDoFunc: (fieldValue: any) => boolean): Transf {
-    //     if (_.has(this.baseObject, field)) {
-    //         this.shouldDoNext = shouldDoFunc(_.get(this.baseObject, field))
-    //     }
-
-    //     return this
-    // }
-
-    // /**
-    //  * 
-    //  * @param shouldDoFunc 
-    //  */
-    // public ifObject(shouldDoFunc: (object: any) => boolean): Transf {
-    //     this.shouldDoNext = shouldDoFunc(this.baseObject)
-
-    //     return this
-    // }
 
     /**
      * 
      * @param {string} field - The field to remove 
-     * @returns {Transf}
+     * @returns {Arrowt}
      */
     @If
-    public remove(field: string): Transf {
+    public remove(field: string): Arrowt {
         this.actions.push(new Remove(field))
         return this
     }
@@ -65,15 +42,15 @@ export default class Transf {
      * 
      * @param {string} field - The field to remove
      * @param {(value: any) => any} tranformFunc - Function to run on the field
-     * @returns {Transf}
+     * @returns {Arrowt}
      */
     @If
-    public transform(field: string, tranformFunc: (value: any) => any): Transf {
-        this.actions.push(new Transform(field, tranformFunc))
+    public transform(field: string, tranformFunc: (value: any) => any): Arrowt {
+        this.actions.push(new transform(field, tranformFunc))
         return this
     }
 
-    public if(path: string, IfFunc: (value: any) => boolean): Transf {
+    public if(path: string, IfFunc: (value: any) => boolean): Arrowt {
         console.log(path)
         this.shouldDoNext = IfFunc(get(this.baseObject, path))
         return this

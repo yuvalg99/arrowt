@@ -4,13 +4,13 @@ import { get } from "../utils/get";
 import { has } from "../utils/has";
 import { set } from "../utils/set";
 
-export class Transform implements IAction {
+export class transform implements IAction {
 
     private path: string
     private tranformFunc: (value: any) => any
 
-    constructor(fieldToTransform: string, tranformFunc: (value: any) => any) {
-        this.path = fieldToTransform
+    constructor(fieldTotransform: string, tranformFunc: (value: any) => any) {
+        this.path = fieldTotransform
         this.tranformFunc = tranformFunc
     }
 
