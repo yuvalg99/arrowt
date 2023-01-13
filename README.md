@@ -7,3 +7,11 @@
 ## Code Snippet
 
 ![Code snippet](./img/codeImage_11.png)
+
+Made using @codeimage
+
+## Testing
+
+```bash
+npm run test
+```

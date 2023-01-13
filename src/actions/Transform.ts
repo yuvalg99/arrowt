@@ -4,7 +4,7 @@ import { get } from "../utils/get";
 import { has } from "../utils/has";
 import { set } from "../utils/set";
 
-export class transform implements IAction {
+export class Transform implements IAction {
 
     private path: string
     private tranformFunc: (value: any) => any

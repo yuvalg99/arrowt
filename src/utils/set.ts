@@ -6,9 +6,14 @@
  * 
  * @returns {boolean} - Return `true` if the object was modified, else `false`.
  */
-export function set(object: any, path: string, value: any): boolean {
+export function set(object: any, path: string, value: any, createIfNotExist: boolean = true): boolean {
     const fields: string[] = path.split(".")
-    if (fields.length != 1 && fields[0] in object) {
+    if (createIfNotExist && !(fields[0] in object)) {
+        object[fields[0]] = {}
+    }
+
+    if (fields.length != 1) {
+
         return set(object[fields[0]], fields.slice(1).join("."), value)
     }
 

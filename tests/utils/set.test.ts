@@ -14,4 +14,10 @@ describe('testing get', () => {
         expect(isModified).toBe(true)
         expect(hardObject['hard']['hello'][0]).toBe('test3')
     })
+
+    test('create path if not exist', () => {
+        const testObject: any = {}
+        set(testObject, 'a.test', true, true)
+        expect(testObject).toEqual({ a: { test: true } })
+    })
 })

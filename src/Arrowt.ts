@@ -1,9 +1,10 @@
 import _ from 'lodash'
 import { IAction } from './IAction'
 import { Remove } from './actions/Remove'
-import { transform } from './actions/Transform'
+import { Transform } from './actions/Transform'
 import { If } from './if'
 import { get } from './utils/get'
+import { Rename } from './actions/Rename'
 
 export default class Arrowt {
 
@@ -46,12 +47,23 @@ export default class Arrowt {
      */
     @If
     public transform(field: string, tranformFunc: (value: any) => any): Arrowt {
-        this.actions.push(new transform(field, tranformFunc))
+        this.actions.push(new Transform(field, tranformFunc))
+        return this
+    }
+
+    @If
+    /**
+     * 
+     * @param {string} oldName - path to rename.
+     * @param {string} newName - new path to set
+     * @return {Arrowt}
+     */
+    public rename(oldName: string, newName: string) {
+        this.actions.push(new Rename(oldName, newName))
         return this
     }
 
     public if(path: string, IfFunc: (value: any) => boolean): Arrowt {
-        console.log(path)
         this.shouldDoNext = IfFunc(get(this.baseObject, path))
         return this
     }

@@ -9,7 +9,6 @@ describe("Document Builder", () => {
             }
         }
         const documentBuilder: Arrowt = new Arrowt(baseObject)
-        console.log(documentBuilder.shouldDoNext)
         documentBuilder.remove("hello.mars")
         const finalObject = documentBuilder.build()
         expect(finalObject).toEqual({ "hello": { "world": 1 } })

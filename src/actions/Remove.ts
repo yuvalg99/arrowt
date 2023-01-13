@@ -1,6 +1,6 @@
-import { unset } from "lodash";
 import { IAction } from "../IAction";
 import { ActionStatus } from "../utils/ActionStatus";
+import { unset } from "../utils/unset";
 
 export class Remove implements IAction {
 
